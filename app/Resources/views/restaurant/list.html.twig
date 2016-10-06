@@ -1,0 +1,41 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h2 class="page-header"> Restaurant Tables </h2>
+<table class="table table-striped"> 
+    <thead> 
+        <tr> 
+             
+            <th>Table Number</th> 
+            <th>Availability</th> 
+            <th>Action</th>
+       
+             
+        </tr> 
+    </thead> 
+    <tbody> 
+        {% for diningtable in diningtables %}
+        <tr> 
+            <th scope="row">
+                {{diningtable.tablenumber|number_format}}
+            </th> 
+            <td>
+               {{diningtable.status}}
+            </td> 
+            
+            <td>
+                <a href="/restaurant/order/{{diningtable.tablenumber}}" class="btn btn-success"> View Menu </a>
+                {#<a href="/todo/edit/{{todo.id}}" class="btn btn-default"> Edit </a>
+                <a href="/todo/delete/{{todo.id}}" class="btn btn-danger"> Delete </a>#}
+            </td>
+            
+        </tr> 
+        {% endfor %}
+        
+    </tbody> 
+</table>
+        
+        
+{% endblock %}

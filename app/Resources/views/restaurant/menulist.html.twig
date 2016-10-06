@@ -1,0 +1,109 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{#    {{dump(categories)}}#}
+    <h2 class="page-header"> Table {{ tablenumber }}.  </h2>
+    <h3 class="page-header"> Select category</h3>
+    
+    {#{% for category in categories %}
+    <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title ">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{category.id}}" aria-expanded="false" aria-controls="collapse{{category.id}}">
+          Collapsible Group Item {{category.id}}
+        </a>
+      </h4>
+    </div>
+    <div id="collapse{{category.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{category.id}}">
+      <div class="panel-body">
+        {{category.id}} pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+    {% endfor %}#}
+    <form>
+     <a href="/" class="btn btn-success"> Save </a>
+<table class="table table-striped"> 
+    <thead> 
+        <tr> 
+             
+            <th>Category</th> 
+            
+       
+             
+        </tr> 
+    </thead> 
+    <tbody> 
+        {% for category in categories %}
+        <tr> 
+            {#<th scope="row">
+                {{category.name}}
+            </th> 
+            <td>
+               {{category.description}}
+            </td> 
+            
+            <td>
+                <a href="/restaurant/menulist" class="btn btn-success"> Select </a>
+                {#<a href="/todo/edit/{{todo.id}}" class="btn btn-default"> Edit </a>
+                <a href="/todo/delete/{{todo.id}}" class="btn btn-danger"> Delete </a>
+            </td> #}
+            <td>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title ">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{category['id']}}" aria-expanded="false" aria-controls="collapse{{category['id']}}">
+                      {{category['name']}}
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapse{{category['id']}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{category['id']}}">
+                  <div class="panel-body">
+                      <table class="table table-striped"> 
+                          <thead> 
+                            <tr> 
+                                <th>#</th> 
+                                <th>Name</th> 
+                                <th>Description</th> 
+                                <th>Price</th>
+                                <th>Select</th>
+                                
+
+                            </tr> 
+                            
+                        </thead> 
+                    {% for menuitem in menuitems %}
+                        
+                        {% if menuitem.menuid == category['id'] %}
+                           
+                             
+                        <tbody>
+                            <tr>
+                                <th scope="row"> {{menuitem.id}}</th>
+                                <td> {{menuitem.name}}</td>
+                                <td> {{menuitem.description}}</td>
+                                <td> {{menuitem.price}}</td>
+                                <td> <input name="item{{menuitem.id}}" type="checkbox" id="{{menuitem.id}}"> </td>
+                            </tr>
+                        </tbody> 
+                        
+                        {% endif %}
+                        
+                    {% endfor %} 
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </td>
+        </tr> 
+        {% endfor %}
+        
+    </tbody> 
+</table>
+        </form>
+        
+      
+
+
+{% endblock %}

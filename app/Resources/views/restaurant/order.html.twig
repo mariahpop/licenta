@@ -1,0 +1,35 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{dump(order.id)}}
+    
+    <h2 class="page-header"> Order for table {{tablenumber}}</h2>
+    
+     <a href="/restaurant/menulist/{{tablenumber}}" class="btn btn-success"> Add from menu </a>
+<table class="table table-striped"> 
+    <thead> 
+        <tr> 
+             
+            <th>Product</th> 
+            <th>Quantity</th>
+            <th>Price </th>
+            
+       
+             
+        </tr> 
+    </thead> 
+    <tbody> 
+       
+           
+        
+    </tbody> 
+</table>
+
+{{form_start(form)}}
+{{form_widget(form)}}
+{{form_end(form)}}
+        
+      
+
+
+{% endblock %}
